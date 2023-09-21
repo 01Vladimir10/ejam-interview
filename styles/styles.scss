@@ -1,0 +1,118 @@
+@import "reset";
+@import "layout";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+$c-secondary: var(--secondary-color);
+$c-primary: var(--primary-color);
+$c-on-secondary: var(--on-secondary-color);
+
+body {
+  font-family: 'Manrope', sans-serif;
+  --primary-color: #59AE43;
+  --secondary-color: #2C7EF8;
+  --secondary-color-10: #EDF3FD;
+  --primary-variant-color: #5bb59a;
+  --on-secondary-color: #FFFFFF;
+  --on-primary-color: #FFFFFF;
+  line-height: 1.125;
+}
+
+.steps {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+
+  .step {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    &__icon {
+      height: 1.5em;
+      width: 1.5em;
+      border: 1px solid $c-secondary;
+      display: inline-grid;
+      place-content: center;
+      border-radius: 50%;
+      background-color: $c-on-secondary;
+      color: $c-secondary;
+    }
+
+    &__label {
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    &.step--current {
+      .step__icon {
+        background-color: $c-secondary;
+        color: $c-on-secondary;
+      }
+
+      .step__label {
+        font-weight: bold;
+      }
+    }
+
+    &.step--completed {
+      .step__icon {
+        background-color: $c-primary;
+        border-color: $c-primary;
+      }
+    }
+  }
+}
+
+
+.nav-menu {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  ul{
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2em;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: 1em;
+      font-size: .8rem;
+      white-space: nowrap;
+
+      img {
+        height: 1.5em;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+
+  }
+
+  button.nav-menu-btn {
+    background-color: transparent;
+    border: none;
+    height: 2em;
+    width: 2em;
+    display: inline-grid;
+    place-content: center;
+    border-radius: .25em;
+    transition: background-color .2s ease-in-out;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+}
